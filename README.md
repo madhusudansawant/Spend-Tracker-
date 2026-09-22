@@ -520,15 +520,11 @@ The final application was tested and integrated into the project by me.
 
 ### Frontend
 
-```text
-<add-render-frontend-url-here>
-```
+https://spend-tracker-frontend-zaau.onrender.com/
 
 ### Backend API
 
-```text
-<add-render-backend-url-here>
-```
+https://spend-tracker-backend-7zow.onrender.com/api
 
 ### GitHub Repository
 
