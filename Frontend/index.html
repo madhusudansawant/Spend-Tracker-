@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spend Tracker - Manage your personal expenses">
+    <title>Spend Tracker</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+    <header class="app-header">
+        
+        <div class="brand">
+            <div class="brand-icon" aria-hidden="true">₹</div>
+            <div class="brand-text">
+                <h1>Spend Tracker</h1>
+                <p id="welcomeUser">Manage your expenses easily</p>
+            </div>
+        </div>
+
+        <button
+            id="logoutBtn"
+            class="btn btn-secondary hidden"
+            type="button"
+        >
+            Logout
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         AUTHENTICATION
+    ====================================================== -->
+    <section id="authSection" class="auth-container">
+        <div class="auth-card">
+
+            <!-- AUTH TABS -->
+            <div class="auth-tabs">
+                <button id="loginTab" class="auth-tab active" type="button">Login</button>
+                <button id="registerTab" class="auth-tab" type="button">Register</button>
+            </div>
+
+            <!-- =================================================
+                 LOGIN
+            ================================================== -->
+            <div id="loginSection">
+                <div class="auth-heading">
+                    <h2>Welcome back 👋</h2>
+                    <p class="subtitle">Login to manage your expenses</p>
+                </div>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" name="email" placeholder="you@example.com" autocomplete="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+                    </div>
+
+                    <button type="submit" id="loginBtn" class="primary-btn">Login</button>
+                </form>
+
+                <div id="loginMessage" class="message" role="alert" aria-live="polite"></div>
+            </div>
+
+            <!-- =================================================
+                 REGISTER
+            ================================================== -->
+            <div id="registerSection" class="hidden">
+                <div class="auth-heading">
+                    <h2>Create account</h2>
+                    <p class="subtitle">Create your Spend Tracker account</p>
+                </div>
+
+                <form id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="first_name" placeholder="John" minlength="2" maxlength="100" autocomplete="given-name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="last_name" placeholder="Doe" maxlength="100" autocomplete="family-name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" name="email" placeholder="you@example.com" autocomplete="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" name="password" placeholder="Minimum 8 characters" minlength="8" autocomplete="new-password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword2">Confirm Password</label>
+                        <input type="password" id="registerPassword2" name="password2" placeholder="Confirm your password" minlength="8" autocomplete="new-password" required>
+                    </div>
+
+                    <button type="submit" id="registerBtn" class="primary-btn">Create Account</button>
+                </form>
+
+                <div id="registerMessage" class="message" role="alert" aria-live="polite"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =====================================================
+         DASHBOARD
+    ====================================================== -->
+    <main id="dashboardSection" class="dashboard hidden">
+
+        <!-- =================================================
+             SUMMARY
+        ================================================== -->
+        <section class="summary-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Monthly Summary</h2>
+                    <p id="summaryMonth">Current month</p>
+                </div>
+            </div>
+
+            <div class="summary-grid">
+                <!-- TOTAL SPEND -->
+                <div class="summary-card">
+                    <div class="summary-card-content">
+                        <span>Total Spend</span>
+                        <strong id="totalSpend" aria-live="polite">₹0.00</strong>
+                    </div>
+                </div>
+
+                <!-- PREVIOUS MONTH -->
+                <div class="summary-card">
+                    <div class="summary-card-content">
+                        <span>Previous Month</span>
+                        <strong id="previousMonthSpend" aria-live="polite">₹0.00</strong>
+                    </div>
+                </div>
+
+                <!-- MONTH CHANGE -->
+                <div class="summary-card">
+                    <div class="summary-card-content">
+                        <span>Month Change</span>
+                        <strong id="monthChange" aria-live="polite">0%</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =================================================
+             ADD EXPENSE + CATEGORY
+        ================================================== -->
+        <section class="content-grid">
+
+            <!-- ADD EXPENSE -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Add Expense</h2>
+                    <p>Record a new expense</p>
+                </div>
+
+                <form id="expenseForm">
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" name="amount" placeholder="450.00" min="0.01" step="0.01" inputmode="decimal" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" id="category" name="category" placeholder="Food" maxlength="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="note">Note</label>
+                        <textarea id="note" name="note" placeholder="Lunch at restaurant" rows="3" maxlength="500"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <button type="submit" id="addExpenseBtn" class="primary-btn">Add Expense</button>
+                </form>
+
+                <div id="expenseMessage" class="message" role="alert" aria-live="polite"></div>
+            </div>
+
+            <!-- SPENDING BY CATEGORY -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Spending by Category</h2>
+                    <p>This month's spending</p>
+                </div>
+
+                <div id="categoryList" class="category-list" aria-live="polite">
+                    <p class="empty-state">No expenses yet.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================== -->
+        <section class="card filters-card">
+            <div class="card-header">
+                <h2>Expenses</h2>
+                <p>View and filter your expenses</p>
+            </div>
+
+            <div class="filters">
+                <div class="form-group">
+                    <label for="filterCategory">Category</label>
+                    <input type="text" id="filterCategory" name="filter_category" placeholder="Food">
+                </div>
+
+                <div class="form-group">
+                    <label for="startDate">From</label>
+                    <input type="date" id="startDate" name="start_date">
+                </div>
+
+                <div class="form-group">
+                    <label for="endDate">To</label>
+                    <input type="date" id="endDate" name="end_date">
+                </div>
+
+                <button id="filterBtn" class="secondary-btn" type="button">Filter</button>
+                <button id="clearFilterBtn" class="text-btn" type="button">Clear</button>
+            </div>
+        </section>
+
+
+        <!-- =================================================
+             EXPENSE LIST
+        ================================================== -->
+        <section class="card">
+            <div class="card-header">
+                <h2>Recent Expenses</h2>
+                <p>Your latest transactions</p>
+            </div>
+
+            <div id="expenseList" class="expense-list" aria-live="polite">
+                <p class="empty-state">No expenses found.</p>
+            </div>
+        </section>
+
+
+        <!-- =================================================
+             INSIGHTS
+        ================================================== -->
+        <section id="insightsSection" class="card hidden">
+            <div class="card-header">
+                <h2>Spending Insights</h2>
+                <p>Categories with increased spending</p>
+            </div>
+            <div id="insightsList" aria-live="polite"></div>
+        </section>
+
+    </main>
+</div>
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+<script src="JS/app.js"></script>
+
+</body>
+</html>
