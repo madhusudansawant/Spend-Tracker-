@@ -183,5 +183,5 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5500",
     "http://127.0.0.1:5500",
-    "https://spend-tracker-backend-7zow.onrender.com"
+    "https://spend-tracker-frontend-zaau.onrender.com"
 ]
