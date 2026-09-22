@@ -532,6 +532,4 @@ The final application was tested and integrated into the project by me.
 
 ### GitHub Repository
 
-```text
-<add-github-repository-url-here>
-```
+https://github.com/madhusudansawant/Spend-Tracker-

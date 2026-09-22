@@ -65,10 +65,15 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="loginPassword">Password</label>
+                    <label for="loginPassword">Password</label>
+                    <div class="password-wrapper">
                         <input type="password" id="loginPassword" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+                        <button type="button" class="toggle-password" aria-label="Show password">
+                            <!-- Default Eye Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
                     </div>
-
+                </div>
                     <button type="submit" id="loginBtn" class="primary-btn">Login</button>
                 </form>
 
@@ -102,16 +107,25 @@
                         <input type="email" id="registerEmail" name="email" placeholder="you@example.com" autocomplete="email" required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="registerPassword">Password</label>
+                    <<div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <div class="password-wrapper">
                         <input type="password" id="registerPassword" name="password" placeholder="Minimum 8 characters" minlength="8" autocomplete="new-password" required>
+                        <button type="button" class="toggle-password" aria-label="Show password">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="registerPassword2">Confirm Password</label>
+                <div class="form-group">
+                    <label for="registerPassword2">Confirm Password</label>
+                    <div class="password-wrapper">
                         <input type="password" id="registerPassword2" name="password2" placeholder="Confirm your password" minlength="8" autocomplete="new-password" required>
+                        <button type="button" class="toggle-password" aria-label="Show password">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
                     </div>
-
+                </div>
                     <button type="submit" id="registerBtn" class="primary-btn">Create Account</button>
                 </form>
 
