@@ -1,4 +1,6 @@
-const API_BASE_URL = "http://127.0.0.1:8000/api";
+// const API_BASE_URL = "http://127.0.0.1:8000/api";
+
+const API_BASE_URL = "https://spend-tracker-backend-7zow.onrender.com/api";
 
 /* =========================================================
    DOM ELEMENTS
@@ -1089,7 +1091,7 @@ function setupPasswordToggles() {
             const input = this.previousElementSibling;
             
             // Toggle type between 'password' and 'text'
-            if (input.type === 'password') {
+            if (input.type === 'password') {https://spend-tracker-backend-7zow.onrender.com/
                 input.type = 'text';
                 this.innerHTML = iconEyeOff;
                 this.setAttribute('aria-label', 'Hide password');
